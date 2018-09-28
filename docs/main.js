@@ -40,9 +40,4 @@ $(function(){
     // 結果をhistoryに追加
     $('#history').prepend("<li>" + answer + "</li>");
   });
-
-  $('#reset').click(function(){
-    $(".preview").empty;
-    $('#history').empty;
-  })
 });
