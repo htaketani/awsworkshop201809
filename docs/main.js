@@ -20,13 +20,11 @@ $(function(){
                    class: "preview",
                   title: file.name
               }));
+        reader.readAsDataURL(file);
+        $('#image').val(reader.result);
       };
     })(file);
 
-    reader.readAsDataURL(file);
-
-    // どこかにセットする
-    $('#image').val(reader.result);
   });
 });
 
