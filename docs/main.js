@@ -39,39 +39,22 @@ $(function(){
         $('#image').val(base64);
 
         // API呼び出し
-        //
-        //
-        //
-    $.ajax({
-        type:"post",                // method = "POST"
-        url:endpoint,        // POST送信先のURL
-        data:JSON.stringify(data),  // JSONデータ本体
-        contentType: 'application/json', // リクエストの Content-Type
-        dataType: "json",           // レスポンスをJSONとしてパースする
-        success: function(json_data) {   // 200 OK時
-        },
-        error: function() {         // HTTPエラー時
-            alert("Server Error. Pleasy try again later.");
-        },
-        complete: function() {      // 成功・失敗に関わらず通信が終了した際の処理
-        }
-    });
+        $.ajax({
+            type:"post",                // method = "POST"
+            url:endpoint,        // POST送信先のURL
+            data:JSON.stringify(data),  // JSONデータ本体
+            contentType: 'application/json', // リクエストの Content-Type
+            dataType: "json",           // レスポンスをJSONとしてパースする
+            success: function(json_data) {   // 200 OK時
+                $('#errorMessage').hide();
+                $('#history').prepend("<li>" + json_data.body + "</li>");
+            },
+            error: function() {         // HTTPエラー時
+                $('#errorMessage').show();
+            },
+            complete: function() {      // 成功・失敗に関わらず通信が終了した際の処理
+            }
+        });
 
-        var result = {
-             answer: 'flower',
-             success: true,
-        };
-        //var result = {
-        //     answer: null,
-        //     success: false,
-        //};
-
-        // 結果をhistoryに追加
-        if (result.success) {
-            $('#errorMessage').hide();
-            $('#history').prepend("<li>" + result.answer + "</li>");
-        } else {
-            $('#errorMessage').show();
-        }
     });
 });
