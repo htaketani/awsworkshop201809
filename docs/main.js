@@ -1,11 +1,10 @@
 
-val reader;
+var reader = new FileReader();
 
 $(function(){
   //画像ファイルプレビュー表示
   $('#upload').on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
-        reader = new FileReader(),
         $preview = $(".preview");
         t = this;
 
