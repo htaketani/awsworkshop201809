@@ -1,3 +1,6 @@
+
+val reader;
+
 $(function(){
   //画像ファイルプレビュー表示
   $('#upload').on('change', 'input[type="file"]', function(e) {
@@ -20,11 +23,15 @@ $(function(){
                    class: "preview",
                   title: file.name
               }));
-        reader.readAsDataURL(file);
-        $('#image').val(reader.result);
       };
     })(file);
 
+    reader.readAsDataURL(file);
+  });
+
+  $('#submit').on('click', function(e) {
+    $('#image').val(reader.result); // 目視確認用
+    $.post('https://example.com/endpoint', { image: reader.result });
   });
 });
 
