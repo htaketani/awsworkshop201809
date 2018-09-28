@@ -1,6 +1,6 @@
 $(function(){
   //画像ファイルプレビュー表示
-  $('form').on('change', 'input[type="file"]', function(e) {
+  $('#upload').on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $(".preview");
