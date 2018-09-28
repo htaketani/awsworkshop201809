@@ -47,7 +47,8 @@ $(function(){
             dataType: "json",           // レスポンスをJSONとしてパースする
             success: function(json_data) {   // 200 OK時
                 $('#errorMessage').hide();
-                $('#history').prepend("<li>" + json_data.body + "</li>");
+                //$('#history').prepend("<li>" + json_data.body + "</li>");
+                $('#history').prepend("<li>" + 'CAT' + "</li>");
             },
             error: function() {         // HTTPエラー時
                 $('#errorMessage').show();
