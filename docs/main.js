@@ -29,8 +29,16 @@ $(function(){
   });
 
   $('#submit').on('click', function(e) {
-    $('#image').val(reader.result); // 目視確認用
-    $.post('https://example.com/endpoint', { image: reader.result });
+
+    // 目視確認用
+    $('#image').val(reader.result);
+
+    // API呼び出し
+    //$.post('https://example.com/endpoint', { image: reader.result });
+    var answer = 'dummy';
+
+    // 結果をhistoryに追加
+    $('#history').prepend("<li>" + answer + "</li>");
   });
 });
 
