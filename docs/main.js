@@ -39,10 +39,24 @@ $(function(){
         $('#image').val(base64);
 
         // API呼び出し
-        $.post(endpoint, data, function(result) {
-            // success時
+        //
+        //
+        //
+    $.ajax({
+        type:"post",                // method = "POST"
+        url:endpoint,        // POST送信先のURL
+        data:JSON.stringify(data),  // JSONデータ本体
+        contentType: 'application/json', // リクエストの Content-Type
+        dataType: "json",           // レスポンスをJSONとしてパースする
+        success: function(json_data) {   // 200 OK時
+        },
+        error: function() {         // HTTPエラー時
+            alert("Server Error. Pleasy try again later.");
+        },
+        complete: function() {      // 成功・失敗に関わらず通信が終了した際の処理
+        }
+    });
 
-        }, 'json');
         var result = {
              answer: 'flower',
              success: true,
