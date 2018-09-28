@@ -42,3 +42,7 @@ $(function(){
   });
 });
 
+$('#reset').click(function(){
+  $(".preview").empty;
+  $('#history').empty;
+})
