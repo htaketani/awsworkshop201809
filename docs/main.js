@@ -35,10 +35,22 @@ $(function(){
 
     // API呼び出し
     //$.post('https://example.com/endpoint', { image: reader.result });
-    var answer = 'dummy';
+      var result = {
+         answer: 'flower',
+         success: true,
+      };
+      //var result = {
+      //   answer: null,
+      //   success: false,
+      //};
 
     // 結果をhistoryに追加
-    $('#history').prepend("<li>" + answer + "</li>");
+      if (result.success) {
+        $('#errorMessage').hide();
+        $('#history').prepend("<li>" + result.answer + "</li>");
+      } else {
+        $('#errorMessage').show();
+      }
   });
 });
 
