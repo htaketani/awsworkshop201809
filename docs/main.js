@@ -26,7 +26,7 @@ $(function(){
     reader.readAsDataURL(file);
 
     // どこかにセットする
-    $('#image').value(reader.result);
+    $('#image').val(reader.result);
   });
 });
 
